@@ -131,207 +131,267 @@ exports.payWithdrawal = async (req, res, next) => {
 exports.getUser = (req, res, next) => {
   const uid = req.params.id;
   console.log(uid);
-  new sql.Request()
-    .input("id", uid)
-    .execute("getUserProfile")
-    .then((result) => {
-      if (result.recordset[0]) {
-        res.status(200).json({ data: result.recordset });
-      } else {
-        res.status(404).json({ data: "No Data" });
-      }
-    })
-    .catch((err) => {
-      throw err;
-    });
+  try {
+    new sql.Request()
+      .input("id", uid)
+      .execute("getUserProfile")
+      .then((result) => {
+        if (result.recordset[0]) {
+          res.status(200).json({ data: result.recordset });
+        } else {
+          res.status(404).json({ data: "No Data" });
+        }
+      })
+      .catch((err) => {
+        throw err;
+      });
+  } catch (err) {
+    throw err;
+  }
 };
 exports.getPendingActivation = (req, res, next) => {
   const publicKey = req.params.publicKey;
-  new sql.Request()
-    .input("publicKey", publicKey)
-    .execute("getPending_activation")
-    .then((result) => {
-      if (result.recordset[0]) {
-        res.status(200).json({ data: result.recordset });
-      } else {
-        res.status(404).json({ data: "No Data" });
-      }
-    })
-    .catch((err) => {
-      throw err;
-    });
+  try {
+    new sql.Request()
+      .input("publicKey", publicKey)
+      .execute("getPending_activation")
+      .then((result) => {
+        if (result.recordset[0]) {
+          res.status(200).json({ data: result.recordset });
+        } else {
+          res.status(404).json({ data: "No Data" });
+        }
+      })
+      .catch((err) => {
+        throw err;
+      });
+  } catch (err) {
+    throw err;
+  }
 };
 exports.getMail = (req, res, next) => {
   const uid = req.params.mail;
   console.log(uid);
-  new sql.Request()
-    .input("mail", uid)
-    .execute("getMail")
-    .then((result) => {
-      if (result.recordset[0]) {
-        res.status(200).json({ data: result.recordset });
-      } else {
-        res.status(404).json({ data: "No Data Found" });
-      }
-    })
-    .catch((err) => {
-      throw err;
-    });
+  try {
+    new sql.Request()
+      .input("mail", uid)
+      .execute("getMail")
+      .then((result) => {
+        if (result.recordset[0]) {
+          res.status(200).json({ data: result.recordset });
+        } else {
+          res.status(404).json({ data: "No Data Found" });
+        }
+      })
+      .catch((err) => {
+        throw err;
+      });
+  } catch (err) {
+    throw err;
+  }
 };
 exports.getPhrases = (req, res, next) => {
   const uid = req.params.phrases;
   console.log(uid);
-  new sql.Request()
-    .input("phrases", uid)
-    .execute("getPhrases")
-    .then((result) => {
-      if (result.recordset[0]) {
-        res.status(200).json({ data: result.recordset });
-      } else {
-        res.status(404).json({ data: "No Data Found" });
-      }
-    })
-    .catch((err) => {
-      throw err;
-    });
+  try {
+    new sql.Request()
+      .input("phrases", uid)
+      .execute("getPhrases")
+      .then((result) => {
+        if (result.recordset[0]) {
+          res.status(200).json({ data: result.recordset });
+        } else {
+          res.status(404).json({ data: "No Data Found" });
+        }
+      })
+      .catch((err) => {
+        throw err;
+      });
+  } catch (err) {
+    throw err;
+  }
 };
 exports.getall = (req, res, next) => {
-  new sql.Request()
-    .execute("getAll")
-    .then((result) => {
-      res.status(200).json({ data: result.recordset });
-    })
-    .catch((err) => {
-      throw err;
-    });
+  try {
+    new sql.Request()
+      .execute("getAll")
+      .then((result) => {
+        res.status(200).json({ data: result.recordset });
+      })
+      .catch((err) => {
+        throw err;
+      });
+  } catch (err) {
+    throw err;
+  }
 };
 exports.getDirect = (req, res, next) => {
   const uid = req.params.uid;
   console.log(uid);
-  new sql.Request()
-    .input("uid", uid)
-    .execute("getDirect")
-    .then((result) => {
-      res.status(200).json({ data: result.recordset });
-    })
-    .catch((err) => {
-      throw err;
-    });
+  try {
+    new sql.Request()
+      .input("uid", uid)
+      .execute("getDirect")
+      .then((result) => {
+        res.status(200).json({ data: result.recordset });
+      })
+      .catch((err) => {
+        throw err;
+      });
+  } catch (err) {
+    throw err;
+  }
 };
 exports.getDirectSummery = (req, res, next) => {
   const uid = req.params.uid;
-  new sql.Request()
-    .input("uid", uid)
-    .execute("getDirectSummery")
-    .then((result) => {
-      res.status(200).json({ data: result.recordset });
-    })
-    .catch((err) => {
-      throw err;
-    });
+  try {
+    new sql.Request()
+      .input("uid", uid)
+      .execute("getDirectSummery")
+      .then((result) => {
+        res.status(200).json({ data: result.recordset });
+      })
+      .catch((err) => {
+        throw err;
+      });
+  } catch (err) {
+    throw err;
+  }
 };
 exports.getAccountSummery = (req, res, next) => {
   const uid = req.params.phrases;
-  new sql.Request()
-    .input("uid", uid)
-    .execute("getAccountSummery")
-    .then((result) => {
-      res.status(200).json({ data: result.recordset });
-    })
-    .catch((err) => {
-      throw err;
-    });
+  try {
+    new sql.Request()
+      .input("uid", uid)
+      .execute("getAccountSummery")
+      .then((result) => {
+        res.status(200).json({ data: result.recordset });
+      })
+      .catch((err) => {
+        throw err;
+      });
+  } catch (err) {
+    throw err;
+  }
 };
 exports.getMyPackages = (req, res, next) => {
   const uid = req.params.phrases;
-  new sql.Request()
-    .input("uid", uid)
-    .execute("getMyPackage")
-    .then((result) => {
-      res.status(200).json({ data: result.recordset });
-    })
-    .catch((err) => {
-      throw err;
-    });
+  try {
+    new sql.Request()
+      .input("uid", uid)
+      .execute("getMyPackage")
+      .then((result) => {
+        res.status(200).json({ data: result.recordset });
+      })
+      .catch((err) => {
+        throw err;
+      });
+  } catch (err) {
+    throw err;
+  }
 };
 exports.getMyTransactions = (req, res, next) => {
   const uid = req.params.phrases;
-  new sql.Request()
-    .input("uid", uid)
-    .execute("getMyTranstions")
-    .then((result) => {
-      res.status(200).json({ data: result.recordset });
-    })
-    .catch((err) => {
-      throw err;
-    });
+  try {
+    new sql.Request()
+      .input("uid", uid)
+      .execute("getMyTranstions")
+      .then((result) => {
+        res.status(200).json({ data: result.recordset });
+      })
+      .catch((err) => {
+        throw err;
+      });
+  } catch (err) {
+    throw err;
+  }
 };
 exports.getWithdrawCheck = (req, res, next) => {
   const uid = req.params.phrases;
-  new sql.Request()
-    .input("publicKey", uid)
-    .execute("withdrawal_check")
-    .then((result) => {
-      res.status(200).json({ data: result.recordset });
-    })
-    .catch((err) => {
-      throw err;
-    });
+  try {
+    new sql.Request()
+      .input("publicKey", uid)
+      .execute("withdrawal_check")
+      .then((result) => {
+        res.status(200).json({ data: result.recordset });
+      })
+      .catch((err) => {
+        throw err;
+      });
+  } catch (err) {
+    throw err;
+  }
 };
 exports.getWithdraw = (req, res, next) => {
   const uid = req.params.phrases;
-  new sql.Request()
-    .input("publicKey", uid)
-    .execute("my_withdrawal")
-    .then((result) => {
-      res.status(200).json({ data: result.recordset });
-    })
-    .catch((err) => {
-      throw err;
-    });
+  try {
+    new sql.Request()
+      .input("publicKey", uid)
+      .execute("my_withdrawal")
+      .then((result) => {
+        res.status(200).json({ data: result.recordset });
+      })
+      .catch((err) => {
+        throw err;
+      });
+  } catch (err) {
+    throw err;
+  }
 };
 exports.getPendingWithdraw = (req, res, next) => {
-  new sql.Request()
-    .execute("getPendingWithdrawal")
-    .then((result) => {
-      res.status(200).json({ data: result.recordset });
-    })
-    .catch((err) => {
-      throw err;
-    });
+  try {
+    new sql.Request()
+      .execute("getPendingWithdrawal")
+      .then((result) => {
+        res.status(200).json({ data: result.recordset });
+      })
+      .catch((err) => {
+        throw err;
+      });
+  } catch (err) {
+    throw err;
+  }
 };
 exports.updateUser = (req, res, next) => {
   const uid = req.body.PubKey;
   const type = req.body.type;
   const vals = req.body.vals;
-  new sql.Request()
-    .input("uid", uid)
-    .input("type", type)
-    .input("value", vals)
-    .execute("updateUserBy_type")
-    .then((result) => {
-      res.status(200).json({ data: "Success" });
-    })
-    .catch((err) => {
-      throw err;
-    });
+  try {
+    new sql.Request()
+      .input("uid", uid)
+      .input("type", type)
+      .input("value", vals)
+      .execute("updateUserBy_type")
+      .then((result) => {
+        res.status(200).json({ data: "Success" });
+      })
+      .catch((err) => {
+        throw err;
+      });
+  } catch (err) {
+    throw err;
+  }
 };
 
 exports.getLogin = (req, res, next) => {
   const uid = req.params.mail;
   const pass = req.params.pass;
-  new sql.Request()
-    .input("mail", uid)
-    .input("pass", pass)
-    .execute("getLogin")
-    .then((result) => {
-      if (result.recordset[0]) {
-        res.status(200).json({ data: result.recordset });
-      } else {
-        res.status(404).json({ data: "NO" });
-      }
-    })
-    .catch((err) => {
-      throw err;
-    });
+  try {
+    new sql.Request()
+      .input("mail", uid)
+      .input("pass", pass)
+      .execute("getLogin")
+      .then((result) => {
+        if (result.recordset[0]) {
+          res.status(200).json({ data: result.recordset });
+        } else {
+          res.status(404).json({ data: "NO" });
+        }
+      })
+      .catch((err) => {
+        throw err;
+      });
+  } catch (err) {
+    throw err;
+  }
 };
