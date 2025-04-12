@@ -395,3 +395,22 @@ exports.getLogin = (req, res, next) => {
     throw err;
   }
 };
+
+exports.updatePassword = (req, res, next) => {
+  const uid = req.body.PubKey;
+  const pass = req.body.pass;
+  try {
+    new sql.Request()
+      .input("publicKey", uid)
+      .input("pass", pass)
+      .execute("changePassword")
+      .then((result) => {
+        res.status(200).json({ data: "Success" });
+      })
+      .catch((err) => {
+        throw err;
+      });
+  } catch (err) {
+    throw err;
+  }
+};
