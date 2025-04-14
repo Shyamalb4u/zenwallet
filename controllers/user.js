@@ -382,7 +382,9 @@ exports.getLogin = (req, res, next) => {
       .input("pass", pass)
       .execute("getLogin")
       .then((result) => {
-        if (result.recordset[0]) {
+        // console.log("OK");
+        // console.log(result.recordset[0]["status"]);
+        if (result.recordset[0]["status"] == "OK") {
           res.status(200).json({ data: result.recordset });
         } else {
           res.status(404).json({ data: "NO" });
