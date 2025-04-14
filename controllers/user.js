@@ -416,3 +416,19 @@ exports.updatePassword = (req, res, next) => {
     throw err;
   }
 };
+exports.getMyDirectList = (req, res, next) => {
+  const uid = req.params.phrases;
+  try {
+    new sql.Request()
+      .input("uid", uid)
+      .execute("getDirect_list")
+      .then((result) => {
+        res.status(200).json({ data: result.recordset });
+      })
+      .catch((err) => {
+        throw err;
+      });
+  } catch (err) {
+    throw err;
+  }
+};
