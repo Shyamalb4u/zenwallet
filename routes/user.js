@@ -15,6 +15,10 @@ router.get("/getDirectSummery/:uid", userController.getDirectSummery);
 router.get("/getAccountSummery/:phrases", userController.getAccountSummery);
 router.get("/getMyPackages/:phrases", userController.getMyPackages);
 router.get("/getMyDirectList/:phrases", userController.getMyDirectList);
+router.get(
+  "/getLevelBusinessList/:phrases",
+  userController.getLevelBusinessList
+);
 router.get("/getMyTransactions/:phrases", userController.getMyTransactions);
 router.get("/checkWithdraw/:phrases", userController.getWithdrawCheck);
 router.get("/getWithdraw/:phrases", userController.getWithdraw);
