@@ -18,7 +18,7 @@ app.use((req, res, next) => {
 });
 
 const job = schedule.scheduleJob("30 18 * * *", async function () {
-  console.log("The answer to life, the universe, and everything!");
+  console.log("Theno answer to life, the universe, and everything!");
   try {
     const result = await new sql.Request().execute("DailyAchievement_Release");
   } catch (err) {
