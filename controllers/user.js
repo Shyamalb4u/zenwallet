@@ -322,6 +322,22 @@ exports.getMonthlySalary = (req, res, next) => {
     throw err;
   }
 };
+exports.getRewardData = (req, res, next) => {
+  const uid = req.params.phrases;
+  try {
+    new sql.Request()
+      .input("uid", uid)
+      .execute("getRewardData")
+      .then((result) => {
+        res.status(200).json({ data: result.recordset });
+      })
+      .catch((err) => {
+        throw err;
+      });
+  } catch (err) {
+    throw err;
+  }
+};
 exports.getCurrentSalary = (req, res, next) => {
   const uid = req.params.phrases;
   try {

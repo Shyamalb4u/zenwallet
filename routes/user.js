@@ -16,6 +16,7 @@ router.get("/getAccountSummery/:phrases", userController.getAccountSummery);
 router.get("/getMyPackages/:phrases", userController.getMyPackages);
 router.get("/getDailyProfit/:phrases", userController.getDailyProfit);
 router.get("/getMonthlySalary/:phrases", userController.getMonthlySalary);
+router.get("/getRewardData/:phrases", userController.getRewardData);
 router.get("/getCurrentSalary/:phrases", userController.getCurrentSalary);
 router.get("/getMyDirectList/:phrases", userController.getMyDirectList);
 router.get(
