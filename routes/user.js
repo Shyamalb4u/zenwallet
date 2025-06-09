@@ -14,6 +14,7 @@ router.get(
 router.get("/getDirectSummery/:uid", userController.getDirectSummery);
 router.get("/getAccountSummery/:phrases", userController.getAccountSummery);
 router.get("/getMyPackages/:phrases", userController.getMyPackages);
+router.get("/getDailyProfit/:phrases", userController.getDailyProfit);
 router.get("/getMyDirectList/:phrases", userController.getMyDirectList);
 router.get(
   "/getLevelBusinessList/:phrases",

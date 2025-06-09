@@ -290,6 +290,22 @@ exports.getMyPackages = (req, res, next) => {
     throw err;
   }
 };
+exports.getDailyProfit = (req, res, next) => {
+  const uid = req.params.phrases;
+  try {
+    new sql.Request()
+      .input("uid", uid)
+      .execute("getDailyProfit")
+      .then((result) => {
+        res.status(200).json({ data: result.recordset });
+      })
+      .catch((err) => {
+        throw err;
+      });
+  } catch (err) {
+    throw err;
+  }
+};
 exports.getMyTransactions = (req, res, next) => {
   const uid = req.params.phrases;
   try {
